@@ -89,7 +89,7 @@
     </dependencies>
 
     <build>
-        <finalName>SpringMVCApp</finalName>
+        <finalName>hackthon</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
