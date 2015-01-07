@@ -1,6 +1,6 @@
 package com.oracle.hackthon.controller;
 
-import com.oracle.hackthon.model.User;
+import com.oracle.hackthon.model.Account;
 import com.oracle.hackthon.dao.UserRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,9 +16,10 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new Account());
         model.addAttribute("users", userRepository.findAll());
         return "users";
     }
@@ -28,20 +29,20 @@ public class UserController {
     @ResponseBody
     String listUsersJson(ModelMap model) throws JSONException {
         JSONArray userArray = new JSONArray();
-        for (User user : userRepository.findAll()) {
+        for (Account account : userRepository.findAll()) {
             JSONObject userJSON = new JSONObject();
-            userJSON.put("id", user.getId());
-            userJSON.put("firstName", user.getFirstName());
-            userJSON.put("lastName", user.getLastName());
-            userJSON.put("email", user.getEmail());
+            userJSON.put("id", account.getId());
+            userJSON.put("firstName", account.getFirstName());
+            userJSON.put("lastName", account.getLastName());
+            userJSON.put("email", account.getEmail());
             userArray.put(userJSON);
         }
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("user") User user, BindingResult result) {
-        userRepository.save(user);
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String addUser(@ModelAttribute("user") Account account, BindingResult result) {
+        userRepository.save(account);
         return "redirect:/";
     }
 
