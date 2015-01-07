@@ -3,7 +3,8 @@ package com.oracle.hackthon.model;
 import javax.persistence.*;
 
 @Entity(name = "account")
-public class User {
+public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
