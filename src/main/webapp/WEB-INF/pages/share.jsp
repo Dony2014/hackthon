@@ -14,7 +14,7 @@
 	 margin-left: 475px;
 	 margin-top: 37px;
 	 position: relative;
-	 background-image: url(<c:url value="/resource/img/see_top.jpg" /> );
+	 background-image: url(../../../../../../../../tencent/565690186/FileRecv/UIPage/see_top.jpg);
    }
    
    #left{
@@ -25,7 +25,7 @@
 	 margin-left: 290px;
 	 margin-top: -100px;
 	 position: relative;
-	 background-image: url(<c:url value="/resource/img/see_left.jpg" /> );
+	 background-image: url(../../../../../../../../tencent/565690186/FileRecv/UIPage/see_left.jpg);
    }
    
    #right{
@@ -83,30 +83,22 @@
  <!--Top Menu-->
  <div id="top" name="top_div">
    <div style="margin-left:730px; margin-top: 10px">
-      <button style="background:#003300;"><a href="/login"><font color="white">Logout</font></a></button>
+      <button style="background:#003300;"><a href="login.jsp"><font color="white">Logout</font></a></button>
    </div>
-   <div style="margin-left:610px; margin-top: -20px">
+    <div style="margin-left:610px; margin-top: -20px">
       <button style="background:#003300;"><a href="homepage.html"><font color="white">Homepage</font></a></button>
    </div>
    <div id="pic">
-     <img src="<c:url value="/resource/img/word1.png" />" width="240px"/>
+     <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/word1.png" width="240px"/>
    </div>
  </div>
  <div id="left" name="left_div">
    <div id="logo" name="logo_div" style="margin-left: 16px; margin-top:10px">
-     <img src="<c:url value="/resource/img/logo_login.png"/> " width="145px" height="87px"/>
+     <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/logo.jpg" width="145px" height="87px"/>
    </div>
    <!--Personal Infomation-->
    <div id="personalinfo" name="personalinfo_div" style="width: 145px; height: 380px; margin-left: 16px; margin-top:60px">
-     <img src="<c:url value="/resource/img/home.png" /> " width="41px" height="35px" style="margin:2px"/>
-	 <div style="margin-top:-26px; margin-left:50px">
-	   <font color="#000033" size="3px"><b>My Message</b></font>
-	 </div>
-	 <div style="margin-top:30px; margin-left:7px;font-size:15px;color:#003300;font-weight:600">
-	   <label>Eric</label><br>
-	   <label>mrpang@hotmail.com</label><br>
-	   <label>600MB of 4GB Used</label>
-	 </div>
+ 
 	 
    </div> 
  </div>
@@ -120,32 +112,36 @@
 		</form>
       </div>
       <div id="upload"> 
-	    <!--Uploda files-->
-	    <form>
-		 <label style="font-size:15px;">Upload:</label>&nbsp;&nbsp;<input type="file" name="Upload Files" id="file" />
-		</form>
+	    <!--Share people-->
+		<img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/partner1.jpg"/>
+		
+	     <label style="color:#990099">Sharer's Name:</label>&nbsp;&nbsp;
+		 <label style="size:6px">Fred<label>
+		
       </div>
     </div>
     <div id="table" name="table_div">
-          <table style="text-align:left">
+      <table style="text-align:left">
        <tr>
          <th width="300">Filename</th>
          <th width="150">size</th>
-         <th width="220">Date</th>
-         <th width="100">Action</th> 
+         <th width="100">Date</th>
+         <th width="100">Action</th>
+         <th width="150">Action</th>		 
        </tr>
-      <c:forEach items="${files}" var="file">
-                            <tr>
-                                <td>${file.fileName}</td>
-                                <td>${file.fileSize}</td>
-                                <td>9-Jan-2015</td>
-                        </c:forEach>
-       </table>
-     
+       <tr>
+         <td>row 1, cell 1</td>
+         <td>row 1, cell 1</td>
+         <td>row 1, cell 1</td>
+         <td><button type="button" style="height:30px; background:#32CD32; color:white">download</td>
+		 <td><button type="button" style="height:30px; background:#32CD32; color:white">save to my page</td>
+       </tr>
+      </table>
+	  
     </div>
 	<div id="nextlast">
-	  <a><img src="<c:url value="/resource/img/last.jpg" /> "/></a>&nbsp;&nbsp;&nbsp;
-	  <a><img src="<c:url value="/resource/img/next.jpg" /> "/></a>
+	  <a><img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/last.jpg"/></a>&nbsp;&nbsp;&nbsp;
+	  <a><img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/next.jpg"/></a>
 	</div>
  </div>
  

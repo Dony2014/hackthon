@@ -38,13 +38,10 @@
 
         // fetch FileList object
         var files = e.target.files || e.dataTransfer.files;
-
-
         // process all File objects
         for (var i = 0, f; f = files[i]; i++) {
             ParseFile(f,i);
         }
-
     }
     // output file information
     function ParseFile(file,i) {
@@ -53,12 +50,6 @@
                 "</strong> size: <strong>" + file.size +
                 "</strong> bytes</p>"
         );
-
-        printInputTag(
-            "<input name=\" files["+i+"]\" type=\"file\" class=\"form-control\" />"
-        );
-
-
     }
 
 

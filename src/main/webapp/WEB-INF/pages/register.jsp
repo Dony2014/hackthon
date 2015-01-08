@@ -75,15 +75,15 @@
     width:200px;
     height:127px;"
  }
- #login
+ #register
  {
     position:absolute;
-    left:490px;
+    left:480px;
     top:260px;
     width:200px;
     height:127px;"
  }
- #register
+ #login
  {
     position:absolute;
     left:350px;
@@ -105,40 +105,41 @@
     <body>
 	  <div id="bg">
 	    <div id="logo" name="logo_div">
-		   <img src="<c:url value="/resource/img/logo_login.png"/>"/>
-		   <img src="<c:url value="/resource/img/word1.png" />"/>
+		   <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/logo_login.jpg"/>
+		   <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/word1.png"/>
 		</div>
 	    <div id="post" name="post_div">
-		   <img src="<c:url value="/resource/img/cloud.jpg" />"/>
+		   <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/cloud.jpg"/>
 		</div>
         <div id="container" >
-            <form:form method="post" action="requestLogin" commandName="account" role="form">
+           <form:form method="post" action="homepage.jsp" commandName="user" role="form">
                 <div class="form-group">
                     <div id="user_text" >
-                    <form:label path="Username">username:</form:label>
+                    <form:label path="firstName">username:</form:label>
                     </div>
                     <div id="user_input">
-                    <form:input path="Username" class="form-control" placeholder="username"/>
+                    <form:input path="firstName" class="form-control" placeholder="username"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div id="password_text">
-                    <form:label path="Password">passowrd:</form:label>
+                    <form:label path="lastName">passowrd:</form:label>
                     </div>
                      <div id="password_input">
-                     <form:password path="Password" class="form-control" placeholder="password"/>
+                     <form:password path="lastName" class="form-control" placeholder="password"/>
                      </div>
                 </div>
-                <div id="login" >
-                	<button style="background:#4169E1;color:white" type="submit" class="btn btn-default">Login</button>
+                <div id="register" >
+                	<button style="background:#4169E1;color:white" type="submit" class="btn btn-default">Register</button>
                 </div>
-                <div id="register">
-                <a href="register.jsp">Rigister</a>
+                <div id="login">
+                <a href="login.jsp">Login</a>
                 </div>
                 <div id="forget" >
                 <a href="forget.jsp">Forget password?</a>
                 </div>
             </form:form>
         </div>
+	  </div>
     </body>
 </html>

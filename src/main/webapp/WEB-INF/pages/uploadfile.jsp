@@ -28,9 +28,9 @@
                         </div>
                         <div id="drag">
 
-                            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" class="form-control" style="display: none"/>
+                            <input type="file" id="fileselect" name="file[1]" multiple="multiple" class="form-control" style="display: none"/>
 
-                            <div id="filedrag">or Drop Files  Here</div>
+                            <div id="filedrag">Drop Files  Here</div>
                         </div>
                         <div id="messages" >
                             <p>Status Messages</p>
