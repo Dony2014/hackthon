@@ -1,52 +1,117 @@
 package com.oracle.hackthon.model;
 
-import javax.persistence.*;
+import java.util.Date;
 
-@Entity(name = "account")
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "Account")
 public class Account {
-
-    @Id
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long AccountID;
+	@Basic
+	private Long AccountType;
+	@Basic
+	private String Username;
+	@Basic
+	private String Password;
+	@Basic
+	private Long Capacity;
+	@Basic
+	private Long Remaining;
+	@Basic
+	private Date CreationDate;
+	@Basic
+	private Date LastLoginDate;
+	@Basic
+	private Long LastUpdateBy;
+	
+	@Basic
+	private Long LastLoginAddr;
 
-    @Basic
-    private String firstName;
+	public Long getLastLoginAddr() {
+		return LastLoginAddr;
+	}
 
-    @Basic
-    private String lastName;
+	public void setLastLoginAddr(Long lastLoginAddr) {
+		LastLoginAddr = lastLoginAddr;
+	}
 
-    @Basic
-    private String email;
+	public Long getAccountID() {
+		return AccountID;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setAccountID(Long accountID) {
+		AccountID = accountID;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getAccountType() {
+		return AccountType;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public void setAccountType(Long accountType) {
+		AccountType = accountType;
+	}
 
-    public void setFirstName(String name) {
-        this.firstName = name;
-    }
+	public String getUsername() {
+		return Username;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setUsername(String username) {
+		Username = username;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public String getPassword() {
+		return Password;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassword(String password) {
+		Password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public Long getCapacity() {
+		return Capacity;
+	}
+
+	public void setCapacity(Long capacity) {
+		Capacity = capacity;
+	}
+
+	public Long getRemaining() {
+		return Remaining;
+	}
+
+	public void setRemaining(Long remaining) {
+		Remaining = remaining;
+	}
+
+	public Date getCreationDate() {
+		return CreationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		CreationDate = creationDate;
+	}
+
+	public Date getLastLoginDate() {
+		return LastLoginDate;
+	}
+
+	public void setLastLoginDate(Date lastLoginDate) {
+		LastLoginDate = lastLoginDate;
+	}
+
+	public Long getLastUpdateBy() {
+		return LastUpdateBy;
+	}
+
+	public void setLastUpdateBy(Long lastUpdateBy) {
+		LastUpdateBy = lastUpdateBy;
+	}
+
 }

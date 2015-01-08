@@ -40,7 +40,6 @@ public class FileUploadController {
 
         if (null != Files && Files.size() > 0) {
             for (MultipartFile multipartFile : Files) {
-
                 String fileName = multipartFile.getOriginalFilename();
                 if (!"".equalsIgnoreCase(fileName)) {
 
