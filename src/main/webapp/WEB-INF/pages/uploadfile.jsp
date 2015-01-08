@@ -9,20 +9,32 @@
     <title>Upload File</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/dist/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" media="all"href="http://localhost:7001/hackthon/resource/css/filedrag-styles.css"/>
 </head>
 
 <body>
 <div class="container">
-    <h1>Select files to upload.</h1>
     <form:form method="post" action="savefiles" modelAttribute="uploadForm" enctype="multipart/form-data">
         <p></p>
         <table id="fileTable">
             <tr>
                 <div class="form-group">
                     <td>
+                      <label class="form-group"  >Files To Upload </label>
+                        <div id="inputTag" >
                         <input name="files[0]" type="file" class="form-control"/>
+                        </div>
+                        <div id="drag">
+
+                            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" class="form-control" style="display: none"/>
+
+                            <div id="filedrag">or Drop Files  Here</div>
+                        </div>
+                        <div id="messages" >
+                            <p>Status Messages</p>
+                        </div>
                     </td>
                 </div>
             </tr>
@@ -34,5 +46,6 @@
         -->
     </form:form>
 </div>
+<script src="http://localhost:7001/hackthon/resource/script/filedrag.js"></script>
 </body>
 </html>

@@ -10,9 +10,8 @@
 
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/dist/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 </head>
 
 <body>
@@ -27,7 +26,7 @@
             - ${file} <br>
         </c:forEach>
     </ol>
-    <a href="/hackthon"><input type="button" value="Go Back"/></a> <br/>
+    <a href="/hackthon/gohome"><input type="button" value="Go Home Page"/></a> <br/>
     <br/>
     <br/>
 </div>

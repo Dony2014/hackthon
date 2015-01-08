@@ -1,7 +1,6 @@
 package com.oracle.hackthon.controller;
 
 import com.oracle.hackthon.dao.UserRepository;
-import com.oracle.hackthon.model.AccountTest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,19 +16,14 @@ public class UserController {
     private UserRepository userRepository;
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
-        model.addAttribute("user", new AccountTest());
-        model.addAttribute("users", userRepository.findAll());
-        return "users";
-    }
+/**
 
     @RequestMapping(value = "/api/users", method = RequestMethod.GET)
     public
     @ResponseBody
     String listUsersJson(ModelMap model) throws JSONException {
         JSONArray userArray = new JSONArray();
-        for (AccountTest account : userRepository.findAll()) {
+        for (Account account : userRepository.findAll()) {
             JSONObject userJSON = new JSONObject();
             userJSON.put("id", account.getId());
             userJSON.put("firstName", account.getFirstName());
@@ -51,4 +45,5 @@ public class UserController {
         userRepository.delete(userRepository.findOne(userId));
         return "redirect:/";
     }
+    */
 }

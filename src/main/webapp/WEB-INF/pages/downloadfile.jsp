@@ -8,12 +8,13 @@
     <title>DownLoad File</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/dist/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 </head>
 <body>
-<form:form action="downloadfile/packages.txt" method="get">
+<form:form action="downloadfile/4" method="get">
     <input type="submit" class="btn btn-danger btn-mini" value="Download"/>
 </form:form>
+<jsp:include page="filedrag.jsp"/>
 </body>
 </html>
