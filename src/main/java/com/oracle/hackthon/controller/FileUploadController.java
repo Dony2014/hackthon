@@ -72,7 +72,7 @@ public class FileUploadController {
         }
 
         map.addAttribute("files", fileNames);
-        return "homepage";
+        return "uploadfilesuccess";
     }
 
     private void fileCalcuation(MultipartFile file, Long userId) {
