@@ -195,11 +195,11 @@
                 <td>${file.fileSize}</td>
                 <td>9-Jan-2015</td>
                 <td>
-                    <button type="button" style="height:20px; background:#C0C0C0; color:white"/>
+                    <button type="button" style="height:30px; background:#C0C0C0; color:white"/>
                     share
                 </td>
                 <td>
-                    <button type="button" style="height:20px; background:#C0C0C0; color:white"/>
+                    <button type="button" style="height:30px; background:#C0C0C0; color:white"/>
                     download
                 </td>
                 </c:forEach>
