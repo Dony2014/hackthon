@@ -115,9 +115,7 @@
         <div style="margin-top:30px; margin-left:7px;font-size:15px;color:#003300;font-weight:600">
 
             <c:if test="${user_info==null}">
-
                 alert(user_info.)
-
             </c:if>
             <tr>
                 <td>${user_info.userName}</td>
