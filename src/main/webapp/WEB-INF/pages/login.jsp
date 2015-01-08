@@ -115,18 +115,18 @@
             <form:form method="post" action="requestLogin" commandName="account" role="form">
                 <div class="form-group">
                     <div id="user_text" >
-                    <form:label path="Username">username:</form:label>
+                    <form:label path="userName">username:</form:label>
                     </div>
                     <div id="user_input">
-                    <form:input path="Username" class="form-control" placeholder="username"/>
+                    <form:input path="userName" class="form-control" placeholder="username"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div id="password_text">
-                    <form:label path="Password">passowrd:</form:label>
+                    <form:label path="password">passowrd:</form:label>
                     </div>
                      <div id="password_input">
-                     <form:password path="Password" class="form-control" placeholder="password"/>
+                     <form:password path="password" class="form-control" placeholder="password"/>
                      </div>
                 </div>
                 <div id="login" >

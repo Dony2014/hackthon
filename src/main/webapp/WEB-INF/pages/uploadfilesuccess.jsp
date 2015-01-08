@@ -26,7 +26,7 @@
             - ${file} <br>
         </c:forEach>
     </ol>
-    <a href="/hackthon/gohome"><input type="button" value="Go Home Page"/></a> <br/>
+    <a href="/hackthon/prehome"><input type="button" value="Go Home Page"/></a> <br/>
     <br/>
     <br/>
 </div>

@@ -13,124 +13,127 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long AccountID;
+    private Long accountID;
     @Basic
-    private Long AccountType;
+    private Long accountType;
     @Basic
-    private String Username;
+    private String userName;
     @Basic
-    private String Password;
+    private String password;
     @Basic
-    private Long Capacity;
+    private Long capacity;
     @Basic
-    private Long Remaining;
+    private Long remaining;
     @Basic
-    private Date CreationDate;
+    private Date creationDate;
     @Basic
-    private Date LastLoginDate;
-    @Basic
-    private Long LastUpdateBy;
-    @Basic
-    private Long LastLoginAddr;
-    @Basic
-    private Long Charge;
-    @Basic
-    private int onlineFlag;
-
-    public Long getLastLoginAddr() {
-        return LastLoginAddr;
-    }
-
-    public void setLastLoginAddr(Long lastLoginAddr) {
-        LastLoginAddr = lastLoginAddr;
-    }
+    private Date lastLoginDate;
 
     public Long getAccountID() {
-        return AccountID;
-    }
-
-    public void setAccountID(Long accountID) {
-        AccountID = accountID;
+        return accountID;
     }
 
     public Long getAccountType() {
-        return AccountType;
+        return accountType;
     }
 
-    public void setAccountType(Long accountType) {
-        AccountType = accountType;
-    }
-
-    public String getUsername() {
-        return Username;
-    }
-
-    public void setUsername(String username) {
-        Username = username;
+    public String getUserName() {
+        return userName;
     }
 
     public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
+        return password;
     }
 
     public Long getCapacity() {
-        return Capacity;
-    }
-
-    public void setCapacity(Long capacity) {
-        Capacity = capacity;
+        return capacity;
     }
 
     public Long getRemaining() {
-        return Remaining;
-    }
-
-    public void setRemaining(Long remaining) {
-        Remaining = remaining;
+        return remaining;
     }
 
     public Date getCreationDate() {
-        return CreationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        CreationDate = creationDate;
+        return creationDate;
     }
 
     public Date getLastLoginDate() {
-        return LastLoginDate;
+        return lastLoginDate;
+    }
+
+    public void setAccountID(Long accountID) {
+        this.accountID = accountID;
+    }
+
+    public void setAccountType(Long accountType) {
+        this.accountType = accountType;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCapacity(Long capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setRemaining(Long remaining) {
+        this.remaining = remaining;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public void setLastLoginDate(Date lastLoginDate) {
-        LastLoginDate = lastLoginDate;
-    }
-
-    public Long getLastUpdateBy() {
-        return LastUpdateBy;
+        this.lastLoginDate = lastLoginDate;
     }
 
     public void setLastUpdateBy(Long lastUpdateBy) {
-        LastUpdateBy = lastUpdateBy;
+        this.lastUpdateBy = lastUpdateBy;
     }
 
-    public Long getCharge() {
-        return Charge;
+    public void setLastLoginAddr(Long lastLoginAddr) {
+        this.lastLoginAddr = lastLoginAddr;
     }
 
     public void setCharge(Long charge) {
-        Charge = charge;
+        this.charge = charge;
+    }
+
+    public void setOnlineFlag(int onlineFlag) {
+        this.onlineFlag = onlineFlag;
+    }
+
+    public Long getLastUpdateBy() {
+        return lastUpdateBy;
+
+    }
+
+    public Long getLastLoginAddr() {
+        return lastLoginAddr;
+    }
+
+    public Long getCharge() {
+        return charge;
     }
 
     public int getOnlineFlag() {
         return onlineFlag;
     }
 
-    public void setOnlineFlag(int onlineFlag) {
-        this.onlineFlag = onlineFlag;
-    }
+    @Basic
+    private Long lastUpdateBy;
+    @Basic
+    private Long lastLoginAddr;
+    @Basic
+    private Long charge;
+    @Basic
+    private int onlineFlag;
+
 
 }

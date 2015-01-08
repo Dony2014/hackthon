@@ -28,7 +28,7 @@
 
         #left {
             color: green;
-            width: 180px;
+            width: 190px;
             height: 699px;
             border: 1px solid #FFFF99;
             margin-left: 290px;
@@ -49,17 +49,17 @@
         }
 
         #table {
-            width: 774px;
+            width: 748px;
             height: 445px;
         / / border : 1 px solid blue;
-            margin-left: 10px;
-            margin-top: 1px;
+            margin-left: 32px;
+            margin-top: -30px;
             position: relative;
         }
 
         #tools {
             width: 774px;
-            height: 89px;
+            height: 76px;
         / / border : 1 px solid green;
             position: relative;
             margin-left: 10px;
@@ -72,12 +72,6 @@
             margin-top: 10px;
         }
 
-        #upload {
-        / / border : 1 px solid red;
-            margin-left: 308px;
-            margin-top: -46px;
-        }
-
         th {
             color: #696969;
             border-bottom: 2px solid grey;
@@ -86,6 +80,7 @@
         td {
             color: #696969;
             border-bottom: 1px solid grey;
+            //width: 50px;
         }
 
         #nextlast {
@@ -118,10 +113,24 @@
         </div>
         <!--TODO-->
         <div style="margin-top:30px; margin-left:7px;font-size:15px;color:#003300;font-weight:600">
-            <label>Eric</label><br>
-            <label>mrpang@hotmail.com</label><br>
-            <label>600MB of 4GB Used</label>
 
+            <c:if test="${user_info==null}">
+
+                alert(user_info.)
+
+            </c:if>
+            <tr>
+                <td>${user_info.userName}</td>
+                <td>${user_info.remaining} used</td>
+                <td>${user_info.capacity} total</td>
+                <td>${user_info.charge} RMB to pay</td>
+            </tr>
+
+            <!--
+        <label>Eric</label><br>
+        <label>mrpang@hotmail.com</label><br>
+        <label>600MB of 4GB Used</label>
+            -->
             <form:form method="post" action="savefiles" modelAttribute="uploadForm" enctype="multipart/form-data">
                 <p></p>
                 <table id="fileTable">
@@ -134,6 +143,7 @@
                                 <div id="drag">
                                     <input type="file" id="fileselect" name="file[1]" multiple="multiple"
                                            class="form-control" style="display: none"/>
+
                                     <div id="filedrag">Drop Files Here</div>
                                 </div>
                             </td>
@@ -173,9 +183,10 @@
     <div id="table" name="table_div">
         <table style="text-align:left">
             <tr>
-                <th width="300">Filename</th>
-                <th width="150">size</th>
-                <th width="220">Date</th>
+                <th width="248">Filename</th>
+                <th width="100">Size</th>
+                <th width="200">Date</th>
+                <th width="100">Action</th>
                 <th width="100">Action</th>
             </tr>
             <c:forEach items="${files}" var="file">
@@ -183,6 +194,14 @@
                 <td>${file.fileName}</td>
                 <td>${file.fileSize}</td>
                 <td>9-Jan-2015</td>
+                <td>
+                    <button type="button" style="height:20px; background:#C0C0C0; color:white"/>
+                    share
+                </td>
+                <td>
+                    <button type="button" style="height:20px; background:#C0C0C0; color:white"/>
+                    download
+                </td>
                 </c:forEach>
         </table>
 

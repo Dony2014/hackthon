@@ -6,6 +6,7 @@ import com.oracle.hackthon.model.File;
 import com.oracle.hackthon.model.Own;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import com.oracle.hackthon.dao.FileRepository;
 import com.oracle.hackthon.dao.UserRepository;
 import com.oracle.hackthon.model.Account;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,14 +38,15 @@ public class UserInfoController {
     }
 
     @RequestMapping(value = "requestLogin", method = RequestMethod.POST)
-    public String userLogin(@ModelAttribute("user") Account account,
+    public String userLogin(HttpServletRequest request,@ModelAttribute("user") Account account, ModelMap model,
                             BindingResult result) {
         for (Account user : userRepository.findAll()) {
-            if (user.getUsername().equals(account.getUsername())) {
+            if (user.getUserName().equals(account.getUserName())) {
                 if (user.getPassword().equals(account.getPassword())) {
                     user.setOnlineFlag(1);
+                    //model.addAttribute("user_info", user);
                     userRepository.saveAndFlush(user);
-                    return "redirect:upload";
+                    return "redirect:/prehome";
 
                 }
             }
@@ -51,9 +54,9 @@ public class UserInfoController {
         return "redirect:/";// ///////////////////
     }
 
-    @RequestMapping(value = "/gohome", method = RequestMethod.GET)
+    @RequestMapping(value = "/prehome", method = RequestMethod.GET)
     public String fileList(ModelMap model) {
-        model.addAttribute("files", fileRepository.findAll());
+
         List<File> files = fileRepository.findAll();
         long userId = 1;
         for (Account user : userRepository.findAll()) {
@@ -67,11 +70,18 @@ public class UserInfoController {
                 fileIds.add(own.getFileID());
             }
         }
+        List<File> returnFiles = new ArrayList<File>();
         for (File file : files) {
-            if (!fileIds.contains(file.getFileID())) {
-                files.remove(file);
+            if (fileIds.contains(file.getFileID())) {
+                returnFiles.add(file);
             }
         }
+        for (Account user : userRepository.findAll()) {
+            if (user.getOnlineFlag()==1) {
+                model.addAttribute("user_info",user);
+            }
+         }
+        model.addAttribute("files", returnFiles);
         return "homepage";// ///////////////////
     }
 
