@@ -14,7 +14,7 @@
 	 margin-left: 475px;
 	 margin-top: 37px;
 	 position: relative;
-	 background-image: url(../../../../../../../../tencent/565690186/FileRecv/UIPage/see_top.jpg);
+	 background-image: url(<c:url value="/resource/img/see_left.jpg" />);
    }
    
    #left{
@@ -25,7 +25,7 @@
 	 margin-left: 290px;
 	 margin-top: -100px;
 	 position: relative;
-	 background-image: url(../../../../../../../../tencent/565690186/FileRecv/UIPage/see_left.jpg);
+	 background-image: url(<c:url value="/resource/img/see_left.jpg" />);
    }
    
    #right{
@@ -83,18 +83,16 @@
  <!--Top Menu-->
  <div id="top" name="top_div">
    <div style="margin-left:730px; margin-top: 10px">
-      <button style="background:#003300;"><a href="login.jsp"><font color="white">Logout</font></a></button>
+      <button style="background:#003300;"><a href="logout"><font color="white">Logout</font></a></button>
    </div>
     <div style="margin-left:610px; margin-top: -20px">
       <button style="background:#003300;"><a href="homepage.html"><font color="white">Homepage</font></a></button>
    </div>
-   <div id="pic">
-     <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/word1.png" width="240px"/>
-   </div>
+   
  </div>
  <div id="left" name="left_div">
    <div id="logo" name="logo_div" style="margin-left: 16px; margin-top:10px">
-     <img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/logo.jpg" width="145px" height="87px"/>
+     <img src="<c:url value="/resource/img/logo_login.png"/>" width="145px" height="87px"/>
    </div>
    <!--Personal Infomation-->
    <div id="personalinfo" name="personalinfo_div" style="width: 145px; height: 380px; margin-left: 16px; margin-top:60px">
@@ -113,7 +111,7 @@
       </div>
       <div id="upload"> 
 	    <!--Share people-->
-		<img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/partner1.jpg"/>
+		<img src="<c:url value="/resource/img/partner1.jpg" />"/>
 		
 	     <label style="color:#990099">Sharer's Name:</label>&nbsp;&nbsp;
 		 <label style="size:6px">Fred<label>
@@ -129,19 +127,40 @@
          <th width="100">Action</th>
          <th width="150">Action</th>		 
        </tr>
+       
+       
        <tr>
          <td>row 1, cell 1</td>
          <td>row 1, cell 1</td>
          <td>row 1, cell 1</td>
-         <td><button type="button" style="height:30px; background:#32CD32; color:white">download</td>
-		 <td><button type="button" style="height:30px; background:#32CD32; color:white">save to my page</td>
+         <!--  
+         <td>
+         	<form:form action="shareDown/${file_id}" method="get">
+         	<input type="submit" style="height:30px; background:#32CD32; color:white" class="btn btn-danger btn-mini" value="share"/>
+         	</form:form>
+         </td>
+		 <td>
+		 	<form:form action="shareDown/${file_id}" method="get">
+		 	<button type="button" style="height:30px; background:#32CD32; color:white">save to my page</button>
+		 	</form:form>
+		 </td>-->
+		 <td>
+         	<form:form action="shareDown/${file_id}" method="get">
+         	<input type="submit" class="btn btn-danger btn-mini" value="download"/>
+         	</form:form>
+         </td>
+		 <td>
+		 	<form:form action="shareSaveToMe/${file_id}" method="get">
+		 	<input type="submit" class="btn btn-danger btn-mini" value="save to my page"/>
+		 	</form:form>
+		 </td>
        </tr>
       </table>
 	  
     </div>
 	<div id="nextlast">
-	  <a><img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/last.jpg"/></a>&nbsp;&nbsp;&nbsp;
-	  <a><img src="../../../../../../../../tencent/565690186/FileRecv/UIPage/next.jpg"/></a>
+	  <a><img src="<c:url value="/resource/img/last.jpg" /> "/></a>&nbsp;&nbsp;&nbsp;
+	  <a><img src="<c:url value="/resource/img/next.jpg" />"/></a>
 	</div>
  </div>
  

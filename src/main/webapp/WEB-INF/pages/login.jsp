@@ -133,7 +133,7 @@
                 	<button style="background:#4169E1;color:white" type="submit" class="btn btn-default">Login</button>
                 </div>
                 <div id="register">
-                <a href="register.jsp">Rigister</a>
+                <a href="forwardRegister">Register</a>
                 </div>
                 <div id="forget" >
                 <a href="forget.jsp">Forget password?</a>
