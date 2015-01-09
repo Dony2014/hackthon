@@ -109,7 +109,7 @@ public class FileUploadController {
 
 
     private void fileCalcuation(MultipartFile file, Long userId) {
-        long fileSize = file.getSize();
+        long fileSize = file.getSize()/1000;
         Account account = userRepository.findOne(userId);
         long oldRemain = account.getRemaining();
         account.setRemaining(oldRemain - fileSize);
@@ -117,7 +117,7 @@ public class FileUploadController {
     }
 
     private void fileUpdate(MultipartFile file) {
-        long fileSize = file.getSize();
+        long fileSize = file.getSize()/1000;
         String name = file.getOriginalFilename();
         com.oracle.hackthon.model.File f = new com.oracle.hackthon.model.File();
         f.setFileName(name);

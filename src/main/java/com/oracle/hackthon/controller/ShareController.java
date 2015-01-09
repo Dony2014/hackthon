@@ -27,35 +27,37 @@ import com.oracle.hackthon.model.Own;
 
 @Controller
 public class ShareController {
-	
-	@Autowired
-	private UserRepository userRepository;
-	@Autowired
-	private FileRepository fileRepository;
-	@Autowired
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private FileRepository fileRepository;
+    @Autowired
     private OwnRepository ownRepository;
-	
-	/** forward share page **/
-	@RequestMapping(value = "/testShare", method = RequestMethod.GET)
+
+    /** forward share page **/
+    @RequestMapping(value = "/testShare", method = RequestMethod.GET)
     public String forwordShare(HttpServletRequest request, ModelMap model, HttpServletResponse response) {
-		//System.out.println("file id : " + request.getParameter("id")); 
-		model.addAttribute("file_id", request.getParameter("fileId"));
+        //System.out.println("file id : " + request.getParameter("id"));
+        model.addAttribute("file_id", request.getParameter("fileId"));
+        com.oracle.hackthon.model.File file = fileRepository.findOne(new Long((long)Integer.parseInt(request.getParameter("fileId"))));
+        model.addAttribute("sharedFile", file);
         return "share";
     }
 
-	@RequestMapping(value = "/shareFile/{file_id}", method = RequestMethod.POST)
-	public String requestShare(@PathVariable("file_id") Long fileId, HttpServletResponse response) {
-		String shareUrl = "http://localhost:7001/hackthon/shareDown/";
-		com.oracle.hackthon.model.File shareFile = fileRepository.findOne(fileId);
-		
-		
-		return "redirect:/";
-	}
-	
-	/** download shared file **/
-	@RequestMapping(value = "/shareDown/{file_id}", method = RequestMethod.GET)
-	public void shareDown(@PathVariable("file_id") Long fileId, HttpServletResponse response) {
-		response.setCharacterEncoding("utf-8");
+    @RequestMapping(value = "/shareFile/{file_id}", method = RequestMethod.POST)
+    public String requestShare(@PathVariable("file_id") Long fileId, HttpServletResponse response) {
+        String shareUrl = "http://localhost:7001/hackthon/shareDown/";
+        com.oracle.hackthon.model.File shareFile = fileRepository.findOne(fileId);
+
+
+        return "redirect:/";
+    }
+
+    /** download shared file **/
+    @RequestMapping(value = "/shareDown/{file_id}", method = RequestMethod.GET)
+    public void shareDown(@PathVariable("file_id") Long fileId, HttpServletResponse response) {
+        response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");
         System.out.println("file 1 :" + fileId );
         response.setHeader("Content-Disposition", "attachment;fileName=" + getFileName(fileId));
@@ -76,26 +78,26 @@ public class ShareController {
             //log.info("Error writing file to output stream. Filename was '{}'", fileName, ex);
             throw new RuntimeException("IOError writing file to output stream");
         }
-	}
-	
-	/** save file to my page **/
-	@RequestMapping(value = "/shareSaveToMe/{file_id}", method = RequestMethod.GET)
-	public String shareSaveToMe(@PathVariable("file_id") Long fileId) {
-		Own own = new Own();
-		
+    }
+
+    /** save file to my page **/
+    @RequestMapping(value = "/shareSaveToMe/{file_id}", method = RequestMethod.GET)
+    public String shareSaveToMe(@PathVariable("file_id") Long fileId) {
+        Own own = new Own();
+
         for (Account account : userRepository.findAll()) {
-            
+
             if(account.getOnlineFlag() == 1)
-            	own.setAccountID(account.getAccountID());
+                own.setAccountID(account.getAccountID());
         }
 
         own.setFileID(fileId);
         ownRepository.save(own);
-		
-		return "redirect:/";
-	}
-	
-	public String getFileName(Long fileId){
+
+        return "redirect:/prehome";
+    }
+
+    public String getFileName(Long fileId){
 
         return fileRepository.findOne(fileId).getFileName();
     }

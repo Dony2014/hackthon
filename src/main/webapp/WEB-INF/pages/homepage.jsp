@@ -94,7 +94,7 @@
 <!--Top Menu-->
 <div id="top" name="top_div">
     <div style="margin-left:730px; margin-top: 10px">
-        <button style="background:#003300;"><a href="/login"><font color="white">Logout</font></a></button>
+        <button style="background:#003300;"><a href="logout"><font color="white">Logout</font></a></button>
     </div>
     <div id="pic">
         <img src="<c:url value="/resource/img/word1.png" />" width="240px"/>
@@ -121,50 +121,39 @@
 
             UserName : ${user_info.userName}<br/>
             Remain Capacity(kb) :<a href="#"> ${user_info.remaining} </a><br/>
-            Total Capacity(kb) : <a href="#">${user_info.capacity}</a>  <br/>
+            Total Capacity(kb) : <a href="#">${user_info.capacity}</a> <br/>
             Have Paid (RMB):<a href="#"> ${user_info.charge}</a>
 
 
-            <!--
-        <label>Eric</label><br>
-        <label>mrpang@hotmail.com</label><br>
-        <label>600MB of 4GB Used</label>
-            -->
             <p></p>
-            <form:form method="post" action="savefiles" modelAttribute="uploadForm" enctype="multipart/form-data">
-                <p></p>
-                <table id="fileTable">
-                    <tr>
-                        <div class="form-group">
-                            <td>
-                                <div id="drag">
-                                    <input type="file" id="fileselect" name="file[1]" multiple="multiple"
-                                           class="form-control" style="display: none"/>
-                                    <div id="filedrag">Drop Files Here</div>
-                                </div>
-                            </td>
-                        </div>
-                    </tr>
-                    <tr>
-                        <div class="form-group">
-                            <td>
-                                <div id="inputTag">
-                                    <input name="files[0]" type="file" class="form-control"/>
-                                    <button type="submit" class="btn btn-default" style="">Upload</button>
-                                </div>
-                            </td>
-                        </div>
-                    </tr>
 
-                </table>
-                <br/>
-
+            <p></p>
+            <table id="fileTable">
                 <!--
-                <input id="addFile" type="button" value="Add File"/>
+                <tr>
+                    <div class="form-group">
+                        <td>
+                            <div id="drag" style="width:18%">
+                                <input type="file" id="fileselect" name="file[1]" multiple="multiple"
+                                       class="form-control" style="display: none"/>
+
+                                <div id="filedrag">Drop Files Here</div>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
                 -->
-            </form:form>
 
-
+                <tr>
+                    <div class="form-group">
+                        <td>
+                            <div id="inputTag">
+                                <jsp:include page="dragpage.jsp"/>
+                            </div>
+                        </td>
+                    </div>
+                </tr>
+            </table>
         </div>
 
     </div>
@@ -174,7 +163,7 @@
     <div id="tools">
         <div id="search">
             <form>
-               <img src="<c:url value="/resource/img/search1.jpg"/>"/>
+                <img src="<c:url value="/resource/img/search1.jpg"/>"/>
                 <input type="text" style="height:30px" value="search" name="search_input" width="20%">
                 <input type="submit" style="height:30px;width:30px" value="Go" name="submit" width="20%">
             </form>
@@ -200,12 +189,10 @@
             <c:forEach items="${files}" var="file">
                 <tr class="list_td">
                     <td>${file.fileName}</td>
-                    <td>${file.fileSize}</td>
+                    <td>${file.fileSize} KB</td>
                     <td>9-Jan-2015</td>
                     <td>
-
-                        <img src="<c:url value="/resource/img/share1.jpg"/>"/>
-
+                        <a href="testShare?fileId=${file.fileID}"><img src="<c:url value="/resource/img/share1.jpg"/>"/></a>
                     </td>
                     <td>
                         <a href="downloadfile/${file.fileID}"><img src="<c:url value="/resource/img/down1.jpg"/>"/></a>

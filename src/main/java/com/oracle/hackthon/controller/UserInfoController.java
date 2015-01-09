@@ -88,7 +88,7 @@ public class UserInfoController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout() {
         for (Account user : userRepository.findAll()) {
-            user.setOnlineFlag(1);
+            user.setOnlineFlag(0);
             userRepository.saveAndFlush(user);
         }
 
@@ -101,9 +101,19 @@ public class UserInfoController {
         return "register";
     }
 
+//    @RequestMapping(value = "/requestRegister", method = RequestMethod.POST)
+//    public String requestRegister(@ModelAttribute("account") Account account,
+//                                  BindingResult result) {
+//        this.userRepository.save(account);
+//        return "redirect:/";
+//    }
+
     @RequestMapping(value = "/requestRegister", method = RequestMethod.POST)
     public String requestRegister(@ModelAttribute("account") Account account,
                                   BindingResult result) {
+        account.setCapacity(new Long ((long)100000));
+        account.setCharge(new Long((long)0));
+        account.setRemaining(new Long ((long)100000));
         this.userRepository.save(account);
         return "redirect:/";
     }
