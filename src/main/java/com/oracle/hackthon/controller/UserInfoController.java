@@ -85,5 +85,27 @@ public class UserInfoController {
         return "homepage";// ///////////////////
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout() {
+        for (Account user : userRepository.findAll()) {
+            user.setOnlineFlag(1);
+            userRepository.saveAndFlush(user);
+        }
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/forwardRegister", method = RequestMethod.GET)
+    public String forwardRegister(ModelMap model) {
+        model.addAttribute("account", new Account());
+        return "register";
+    }
+
+    @RequestMapping(value = "/requestRegister", method = RequestMethod.POST)
+    public String requestRegister(@ModelAttribute("account") Account account,
+                                  BindingResult result) {
+        this.userRepository.save(account);
+        return "redirect:/";
+    }
 
 }

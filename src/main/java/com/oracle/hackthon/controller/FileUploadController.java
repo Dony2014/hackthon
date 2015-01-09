@@ -75,8 +75,40 @@ public class FileUploadController {
         return "uploadfilesuccess";
     }
 
+    @RequestMapping(value = "/slience_savefiles", method = RequestMethod.POST)
+    public String slienceSave(
+            @ModelAttribute("slience_uploadForm") FileUpload uploadForm,
+            Model map) throws IllegalStateException, IOException {
+        String currentWorkdirectory = System.getProperty("user.dir");
+        String saveDirectory = currentWorkdirectory + "/upload/";
+
+        File saveDirec = new File(saveDirectory);
+        if (!saveDirec.exists()) {
+            saveDirec.mkdirs();
+        }
+
+        List<MultipartFile> Files = uploadForm.getFiles();
+
+        List<String> fileNames = new ArrayList<String>();
+
+        if (null != Files && Files.size() > 0) {
+            for (MultipartFile multipartFile : Files) {
+                String fileName = multipartFile.getOriginalFilename();
+                if (!"".equalsIgnoreCase(fileName)) {
+                    addFileToDatabase(multipartFile);
+                    multipartFile
+                            .transferTo(new File(saveDirectory + fileName));
+                    fileNames.add(fileName);
+                }
+            }
+        }
+
+        map.addAttribute("files", fileNames);
+        return "uploadfilesuccess";
+    }
+
+
     private void fileCalcuation(MultipartFile file, Long userId) {
-        ;
         long fileSize = file.getSize();
         Account account = userRepository.findOne(userId);
         long oldRemain = account.getRemaining();
