@@ -25,9 +25,7 @@
         <jta-data-source>weblogicjndi</jta-data-source>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <!--
             <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.WeblogicTransactionManagerLookup"/>
-            -->
             <property name="hibernate.archive.autodetection" value="class, hbm"/>
             <property name="format_sql" value="true"></property>
             <property name="connection.characterEncoding." value="UTF-8"/>
