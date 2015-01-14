@@ -84,9 +84,6 @@
             font-size: 13px;
         }
 
-        nextlast {
-            margin-left: 710px;
-        }
     </style>
 </head>
 
@@ -128,22 +125,10 @@
             <p></p>
 
             <p></p>
+
+
+
             <table id="fileTable">
-                <!--
-                <tr>
-                    <div class="form-group">
-                        <td>
-                            <div id="drag" style="width:18%">
-                                <input type="file" id="fileselect" name="file[1]" multiple="multiple"
-                                       class="form-control" style="display: none"/>
-
-                                <div id="filedrag">Drop Files Here</div>
-                            </div>
-                        </td>
-                    </div>
-                </tr>
-                -->
-
                 <tr>
                     <div class="form-group">
                         <td>
